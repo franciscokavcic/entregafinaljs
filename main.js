@@ -50,7 +50,7 @@ provinciasArgentinas.forEach((provincia) => {
 });
 
 
-const detalleCostosObj = {};
+let detalleCostosObj = {};
 const detalleCostosTextarea = document.getElementById("detalleCostos");
 // Función para mostrarlos en el textarea
 function actualizarCostos() {
@@ -95,7 +95,9 @@ botonpersonas.addEventListener("click", actualizarCostos);
 
 const guardarBtn = document.getElementById("botonEnviaEst");
 
-let txtViajesAcumulados = "";
+document.addEventListener('DOMContentLoaded', function() {
+  refreshViajesAcumulados();
+}, false);
 
 guardarBtn.addEventListener("click", () => {
   if (!isEmpty(detalleCostosObj)) {
@@ -104,12 +106,9 @@ guardarBtn.addEventListener("click", () => {
     datosExistentes.push(detalleCostosObj);
     
     localStorage.setItem("misDatos", JSON.stringify(datosExistentes));
+    detalleCostosObj={};
     
-    
-    
-    
-
-    //alert("Agregaste un viaje !.");
+    alert("Agregaste un viaje !.");
     refreshViajesAcumulados()
     detalleCostosTextarea.value = "";
     
@@ -121,33 +120,31 @@ const viajesAcumulados = document.getElementById("textViajesAcumulados");
 function refreshViajesAcumulados(){
   viajesAcumulados.value = "";
   
-  
-    
-    /*
-
-Object.keys(localStorage).forEach(function(viajeLS){
-
-    let viaje = JSON.stringify(viajeLS)
-    txtViajesAcumulados += `Destino: ${viaje.provNombre} `;
-    txtViajesAcumulados += `Personas: ${viaje.cantidadPersonas} `;
-    txtViajesAcumulados += `Costo Total: $${viaje.costoTotalConIVA}\n`;
-    viajesAcumulados.value = txtViajesAcumulados;
-  });
-   
-
-
-    for (var i = 0; i < localStorage.length; i++){
-      let viaje = localStorage.getItem(localStorage.key(i));
-      txtViajesAcumulados += `Destino: ${viaje.provNombre} `;
-      txtViajesAcumulados += `Personas: ${viaje.cantidadPersonas} `;
-      txtViajesAcumulados += `Costo Total: $${viaje.costoTotalConIVA}\n`;
-      aa =JSON.parse(viaje);
-      viajesAcumulados.value = aa.provNombre;
+  let jsonString = localStorage.getItem('misDatos');
+  let jsonObject = JSON.parse(jsonString);
+  let txtViajesAcumulados = "";
+  let costoTotalFinal= 0.0;
+  for (var key in jsonObject) {
+    if (jsonObject.hasOwnProperty(key)) {
+      let value = jsonObject[key];
+      //console.log(key + ": " + value);
+     
+      txtViajesAcumulados += "Destino: " + value.provNombre + 
+                            " Personas: " + value.cantidadPersonas +
+                            " Precio Final: " + value.costoTotalConIVA +
+                            "\n";
+      
+      costoTotalFinal += parseFloat(value.costoTotalConIVA);
+      
     }
- */
-
+  }
+  viajesAcumulados.value = txtViajesAcumulados;
+  console.log(costoTotalFinal);
+  
 }
-
+window.addEventListener("beforeunload", function(e){
+  refreshViajesAcumulados();
+});
 
 function isEmpty(obj) {
   return Object.keys(obj).length === 0;
