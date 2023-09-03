@@ -1,0 +1,102 @@
+body{ 
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(150deg,#6c3483,#58d68d);
+    height: 100vh;;
+}
+.formulario{
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     width: 500px;
+     transform: translate(-50%,-50%);
+     background: rgba(255, 255, 255, 0.44);
+     border-radius: 10px;
+}
+.formulario h1{
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+}
+
+.formulario form{
+    padding: 0 40px;
+    box-sizing: border-box;
+    
+}
+
+form .username{
+    position: relative;
+    border-bottom: 2px solid gray;
+    margin: 30px 0;
+    }
+.username input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+    }
+
+    .username label{
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        color: gray;
+        transform: translatey(50%);
+        font-size: 16;
+    }
+    
+
+    form .contrasena{
+        position: relative;
+        border-bottom: 2px solid gray;
+        margin: 30px 0;
+        }
+    .contrasena input{
+        width: 100%;
+        padding: 0 5px;
+        height: 40px;
+        font-size: 16px;
+        border: none;
+        background: none;
+        outline: none;
+        }
+    
+        .contrasena label{
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            color: gray;
+            transform: translatey(50%);
+            font-size: 16;
+        }
+    
+
+    
+    .recordar{
+        margin: -5px 0 10px 5px;
+        color: blue;
+        cursor: pointer;
+    }
+    .recordar:hover{
+        text-decoration: underline;
+    }
+     button{
+        display: flex;
+        width: 50%;
+        height: 50px;
+        border: 1px solid;
+        background: #6c3483;
+        border-radius: 18px;
+        font-size: 25px;
+        color: rgba(255, 255, 255, 0.556);
+        cursor: pointer;
+        outline: none;
+        margin-left: 25%;
+       justify-content: center; 
+       align-items: center;
+               
+     }
