@@ -1,0 +1,32 @@
+body{ 
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(150deg,#6c3483,#58d68d);
+    height: 100vh;;
+}
+
+.txcolor{
+    background-color: rgba(255, 255, 255, 0.5);
+ border-radius: 5px;
+ width: 450px;
+ box-shadow: black ,solid, 2px;
+}
+.conteiner-fluid{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+
+
+}
+#provincias-select{
+    background-color: rgba(255, 255, 255, 0.277);
+    color: rgba(0, 0, 0, 0.959) ;
+    border-radius: 5px;
+}
+#cantidadPersonas{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.277);
+    color: rgba(0, 0, 0, 0.959) ;
+}

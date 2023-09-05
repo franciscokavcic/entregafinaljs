@@ -11,16 +11,16 @@
 <body>
     <div class="formulario">
         <h1>Inicio de sesion</h1>
-        <form method="post">
+        <form id="loginForm">
         <div class="username">
-            <input type="text" required placeholder="Usuario">
+            <input type="text" required placeholder="Usuario" id="nombreUsuario">
              <label for="password" required></label>
         </div>
         <div class="contrasena">
-            <input type="text" required placeholder="Contraseña">
+            <input type="text" required placeholder="Contraseña" id="contrasena">
             <label for="password" required></label>
         </div>
-    </form>
+    
    
     <div class="recordar">Olvidaste las contraseña?</div>
     <button type="submit" id="btnloguin">submit</button>
@@ -28,7 +28,9 @@
         quiere hacer el <a href="">registro?</a>
 
     </div>
+</form>
 </div>
+<script src="login.js"></script>
 </body>
 
 </html>
